@@ -4,6 +4,17 @@
 /build
 /tmp
 
+# Dependencies
+node_modules/
+apps/*/node_modules/
+packages/*/node_modules/
+
+# Build outputs
+dist/
+apps/*/dist/
+packages/*/dist/
+.turbo/
+
 # Logs
 logs
 *.log
@@ -13,11 +24,32 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
 # dotenv environment variable files
 .env
+.env.local
 .env.development
 .env.test
 .env.production
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # temp directory
 .temp
