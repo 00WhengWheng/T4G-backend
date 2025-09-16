@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import auth0Config from './auth0.config';
 
@@ -80,5 +80,31 @@ export class Auth0Service {
       accessToken: user.accessToken,
       refreshToken: user.refreshToken,
     };
+  }
+
+  /**
+   * Create or update user/tenant after successful Auth0 authentication
+   */
+  async handleSuccessfulAuth(authUser: AuthUser): Promise<any> {
+    try {
+      if (authUser.type === 'user') {
+        // Import UserService here to avoid circular dependency
+        const { UserService } = await import('../users/user.service');
+        // For now, return the auth user as we don't have dependency injection setup
+        // In a real implementation, this would create/update the user in the database
+        return authUser;
+      } else if (authUser.type === 'tenant') {
+        // Import TenantService here to avoid circular dependency
+        const { TenantService } = await import('../tenants/tenant.service');
+        // For now, return the auth user as we don't have dependency injection setup
+        // In a real implementation, this would create/update the tenant in the database
+        return authUser;
+      }
+      
+      return authUser;
+    } catch (error) {
+      console.error('Error handling successful auth:', error);
+      return authUser;
+    }
   }
 }

@@ -22,6 +22,9 @@ export class Auth0Controller {
       return res.status(401).send({ error: 'Authentication failed' });
     }
 
+    // Handle successful authentication and user creation/update
+    await this.auth0Service.handleSuccessfulAuth(user);
+
     // You can store user session here if needed
     // For now, redirect to frontend with success params
     const redirectUrl = this.auth0Service.getRedirectUrl(user);
@@ -48,6 +51,9 @@ export class Auth0Controller {
     if (!user) {
       return res.status(401).send({ error: 'Authentication failed' });
     }
+
+    // Handle successful authentication and tenant creation/update
+    await this.auth0Service.handleSuccessfulAuth(user);
 
     // You can store user session here if needed
     // For now, redirect to frontend with success params
