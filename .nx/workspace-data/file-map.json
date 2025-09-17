@@ -1,0 +1,346 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.5.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": false
+    }
+  },
+  "fileMap": {
+    "projectFileMap": {
+      "backend": [
+        {
+          "file": "apps/backend/.env.example",
+          "hash": "18328778012009585267"
+        },
+        {
+          "file": "apps/backend/.eslintrc.json",
+          "hash": "12700586811339603868"
+        },
+        {
+          "file": "apps/backend/.prettierrc",
+          "hash": "14673117977144434336"
+        },
+        {
+          "file": "apps/backend/PRISMA_SETUP.md",
+          "hash": "7118543053848337826"
+        },
+        {
+          "file": "apps/backend/jest.config.js",
+          "hash": "6038122805401173268"
+        },
+        {
+          "file": "apps/backend/nest-cli.json",
+          "hash": "15192946356183853116"
+        },
+        {
+          "file": "apps/backend/package.json",
+          "hash": "756664389959216344",
+          "deps": [
+            "npm:@nestjs/cli",
+            "npm:@nestjs/schematics",
+            "npm:@nestjs/testing",
+            "npm:@types/jest",
+            "npm:@types/passport-auth0",
+            "npm:@types/supertest",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-prettier",
+            "npm:jest",
+            "npm:prettier",
+            "npm:rimraf",
+            "npm:source-map-support@0.5.21",
+            "npm:supertest",
+            "npm:ts-jest",
+            "npm:ts-loader",
+            "npm:ts-node",
+            "npm:tsconfig-paths",
+            "npm:typescript",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/core",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/platform-fastify",
+            "npm:@prisma/client",
+            "npm:@trpc/server",
+            "npm:@types/jsonwebtoken",
+            "npm:fastify",
+            "npm:jsonwebtoken",
+            "npm:jwks-rsa",
+            "npm:nestjs-trpc",
+            "npm:passport",
+            "npm:passport-auth0",
+            "npm:prisma",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:superjson",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/backend/prisma/migrations/00001_init/migration.sql",
+          "hash": "10287837390265142462"
+        },
+        {
+          "file": "apps/backend/prisma/schema.prisma",
+          "hash": "4531603599590719653"
+        },
+        {
+          "file": "apps/backend/project.json",
+          "hash": "14633760124812898021"
+        },
+        {
+          "file": "apps/backend/src/app.controller.spec.ts",
+          "hash": "15760451424232486306"
+        },
+        {
+          "file": "apps/backend/src/app.controller.ts",
+          "hash": "4376148286917332792"
+        },
+        {
+          "file": "apps/backend/src/app.module.ts",
+          "hash": "6180873993161372918"
+        },
+        {
+          "file": "apps/backend/src/app.service.ts",
+          "hash": "17664361368718966895"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0-tenant.strategy.ts",
+          "hash": "2041285929012402758"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0-user.strategy.ts",
+          "hash": "5638333804909076797"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.config.ts",
+          "hash": "15960244868588193519"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.controller.spec.ts",
+          "hash": "4684739864442470516"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.controller.ts",
+          "hash": "2237070194499924201"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.guard.ts",
+          "hash": "10568328319429400337"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.module.ts",
+          "hash": "16078315722140986809"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.service.spec.ts",
+          "hash": "10175574299835710323"
+        },
+        {
+          "file": "apps/backend/src/auth/auth0.service.ts",
+          "hash": "2167220953855903577"
+        },
+        {
+          "file": "apps/backend/src/health/health.controller.ts",
+          "hash": "12465834761069865326"
+        },
+        {
+          "file": "apps/backend/src/health/health.module.ts",
+          "hash": "15090231906835751036"
+        },
+        {
+          "file": "apps/backend/src/main.ts",
+          "hash": "7821429773504568209"
+        },
+        {
+          "file": "apps/backend/src/prisma/__mocks__/prisma-client.mock.ts",
+          "hash": "11261220631960092884"
+        },
+        {
+          "file": "apps/backend/src/prisma/prisma.module.ts",
+          "hash": "15830765666008645175"
+        },
+        {
+          "file": "apps/backend/src/prisma/prisma.service.spec.ts",
+          "hash": "14287320296875862555"
+        },
+        {
+          "file": "apps/backend/src/prisma/prisma.service.ts",
+          "hash": "2541794253215296046"
+        },
+        {
+          "file": "apps/backend/src/rewards/README.md",
+          "hash": "7761462756848649003"
+        },
+        {
+          "file": "apps/backend/src/rewards/eligibility.service.spec.ts",
+          "hash": "15617470003154734611"
+        },
+        {
+          "file": "apps/backend/src/rewards/eligibility.service.ts",
+          "hash": "15569197214832236086"
+        },
+        {
+          "file": "apps/backend/src/rewards/leaderboard.service.spec.ts",
+          "hash": "12340128004326491927"
+        },
+        {
+          "file": "apps/backend/src/rewards/leaderboard.service.ts",
+          "hash": "8506745343889207155"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.controller.spec.ts",
+          "hash": "12982834175100199433"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.controller.ts",
+          "hash": "17073168470189620420"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.entity.ts",
+          "hash": "2668175306745990236"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.module.ts",
+          "hash": "9783448589770449545"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.service.spec.ts",
+          "hash": "10455258480979434145"
+        },
+        {
+          "file": "apps/backend/src/rewards/reward.service.ts",
+          "hash": "4338520245538586989"
+        },
+        {
+          "file": "apps/backend/src/seed/seed.module.ts",
+          "hash": "3908171616037417049"
+        },
+        {
+          "file": "apps/backend/src/seed/seed.service.ts",
+          "hash": "1914276676494428577"
+        },
+        {
+          "file": "apps/backend/src/tenants/tenant.controller.ts",
+          "hash": "4447014236778597549"
+        },
+        {
+          "file": "apps/backend/src/tenants/tenant.entity.ts",
+          "hash": "5416751928663960804"
+        },
+        {
+          "file": "apps/backend/src/tenants/tenant.module.ts",
+          "hash": "5069434660472823702"
+        },
+        {
+          "file": "apps/backend/src/tenants/tenant.service.spec.ts",
+          "hash": "13358709368745775733"
+        },
+        {
+          "file": "apps/backend/src/tenants/tenant.service.ts",
+          "hash": "11031249561039257774"
+        },
+        {
+          "file": "apps/backend/src/trpc/trpc.handler.ts",
+          "hash": "3800154045965604033"
+        },
+        {
+          "file": "apps/backend/src/trpc/trpc.module.ts",
+          "hash": "3026387629567437660"
+        },
+        {
+          "file": "apps/backend/src/trpc/trpc.router.ts",
+          "hash": "9897787610254679732"
+        },
+        {
+          "file": "apps/backend/src/trpc/trpc.service.ts",
+          "hash": "1515334286053234373"
+        },
+        {
+          "file": "apps/backend/src/users/user.controller.ts",
+          "hash": "15084784292990644899"
+        },
+        {
+          "file": "apps/backend/src/users/user.entity.ts",
+          "hash": "2105358722159908946"
+        },
+        {
+          "file": "apps/backend/src/users/user.module.ts",
+          "hash": "2990178664369418302"
+        },
+        {
+          "file": "apps/backend/src/users/user.service.spec.ts",
+          "hash": "12909881958087724170"
+        },
+        {
+          "file": "apps/backend/src/users/user.service.ts",
+          "hash": "7867692238845310390"
+        },
+        {
+          "file": "apps/backend/test/app.e2e-spec.ts",
+          "hash": "3655111627867050938"
+        },
+        {
+          "file": "apps/backend/test/jest-e2e.json",
+          "hash": "6945553106405413043"
+        },
+        {
+          "file": "apps/backend/tsconfig.build.json",
+          "hash": "13909318923447913577"
+        },
+        {
+          "file": "apps/backend/tsconfig.json",
+          "hash": "17979603891307573907"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".env.example",
+        "hash": "265675784254277191"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "14321857922174213937"
+      },
+      {
+        "file": "IMPLEMENTATION_SUMMARY.md",
+        "hash": "12559879463148710461"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "8686027317893388706"
+      },
+      {
+        "file": "PRISMA_IMPLEMENTATION.md",
+        "hash": "3715190347899433413"
+      },
+      {
+        "file": "README.md",
+        "hash": "6817307566648234246"
+      },
+      {
+        "file": "TRPC_INTEGRATION.md",
+        "hash": "15724433539369194454"
+      },
+      {
+        "file": "nx.json",
+        "hash": "16780299390318624809"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3372742465219902539"
+      },
+      {
+        "file": "package.json",
+        "hash": "1489884970358111673"
+      }
+    ]
+  },
+  "externalNodesHash": "4547885031757987784"
+}

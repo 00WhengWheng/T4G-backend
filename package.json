@@ -1,25 +1,25 @@
 {
-  "name": "t4g-nestjs-fastify",
+  "name": "@t4g-backend/source",
   "private": true,
   "version": "0.0.1",
-  "description": "Tag 4 Gift Admin - NestJS + Fastify backend with Turborepo",
+  "description": "Tag 4 Gift Admin - NestJS + Fastify backend with NX",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "clean": "turbo run clean"
+    "build": "nx run-many -t build",
+    "dev": "nx run-many -t dev",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test",
+    "clean": "nx reset"
   },
   "devDependencies": {
+    "@nx/js": "21.5.2",
     "@types/node": "^20.11.0",
-    "turbo": "^2.5.6",
+    "nx": "21.5.2",
     "typescript": "^5.3.0"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@8.15.4",
   "engines": {
     "node": ">=18.0.0"
   }
