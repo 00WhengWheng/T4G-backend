@@ -7,7 +7,7 @@ export class UserService {
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
     // Check if user already exists
-    const existingUser = this.findByAuth0Id(createUserDto.auth0Id);
+    const existingUser = await this.findByAuth0Id(createUserDto.auth0Id);
     if (existingUser) {
       throw new ConflictException('User already exists');
     }
@@ -47,7 +47,7 @@ export class UserService {
     return null;
   }
 
-  findByAuth0Id(auth0Id: string): User | null {
+  async findByAuth0Id(auth0Id: string): Promise<User | null> {
     for (const user of this.users.values()) {
       if (user.auth0Id === auth0Id) {
         return user;

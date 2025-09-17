@@ -60,14 +60,14 @@ describe('UserService', () => {
       };
 
       const createdUser = await service.createUser(createUserDto);
-      const foundUser = service.findByAuth0Id('auth0|123456789');
+      const foundUser = await service.findByAuth0Id('auth0|123456789');
 
       expect(foundUser).toBeDefined();
       expect(foundUser!.id).toBe(createdUser.id);
     });
 
-    it('should return null if user not found', () => {
-      const foundUser = service.findByAuth0Id('nonexistent');
+    it('should return null if user not found', async () => {
+      const foundUser = await service.findByAuth0Id('nonexistent');
       expect(foundUser).toBeNull();
     });
   });

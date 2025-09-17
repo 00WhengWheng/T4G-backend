@@ -23,7 +23,7 @@ export class TenantService {
 
   // Tenant Management
   async createTenant(createTenantDto: CreateTenantDto): Promise<Tenant> {
-    const existingTenant = this.findByAuth0Id(createTenantDto.auth0Id);
+    const existingTenant = await this.findByAuth0Id(createTenantDto.auth0Id);
     if (existingTenant) {
       throw new ConflictException('Tenant already exists');
     }
@@ -66,7 +66,7 @@ export class TenantService {
     return null;
   }
 
-  findByAuth0Id(auth0Id: string): Tenant | null {
+  async findByAuth0Id(auth0Id: string): Promise<Tenant | null> {
     for (const tenant of this.tenants.values()) {
       if (tenant.auth0Id === auth0Id) {
         return tenant;

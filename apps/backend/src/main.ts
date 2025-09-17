@@ -4,6 +4,7 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
+import { TrpcHandler } from './trpc/trpc.handler';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -27,10 +28,15 @@ async function bootstrap() {
   // Set global prefix for API routes
   app.setGlobalPrefix('api');
 
+  // Apply tRPC middleware
+  const trpcHandler = app.get(TrpcHandler);
+  await trpcHandler.applyMiddleware(app);
+
   const port = process.env.PORT || 3000;
   await app.listen(port, '0.0.0.0');
   
   console.log(`🚀 Application is running on: http://localhost:${port}/api`);
+  console.log(`🔥 tRPC server is running on: http://localhost:${port}/trpc`);
   console.log(`🔐 Auth0 User Login: http://localhost:${port}/api/auth/login/user`);
   console.log(`🔐 Auth0 Tenant Login: http://localhost:${port}/api/auth/login/tenant`);
 }
