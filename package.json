@@ -12,9 +12,14 @@
   },
   "devDependencies": {
     "@nx/js": "21.5.2",
-    "@types/node": "^20.11.0",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/node": "20.19.9",
     "nx": "21.5.2",
-    "typescript": "^5.3.0"
+    "prettier": "^2.6.2",
+    "tslib": "^2.3.0",
+    "typescript": "~5.9.2"
   },
   "workspaces": [
     "apps/*",
@@ -22,5 +27,6 @@
   ],
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "dependencies": {}
 }
