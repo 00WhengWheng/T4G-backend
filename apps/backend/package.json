@@ -13,7 +13,13 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:studio": "prisma studio",
+    "db:seed": "prisma db seed"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.0",
@@ -21,9 +27,11 @@
     "@nestjs/core": "^10.3.0",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-fastify": "^10.3.0",
+    "@prisma/client": "^6.16.2",
     "fastify": "^4.25.0",
     "passport": "^0.7.0",
     "passport-auth0": "^1.4.4",
+    "prisma": "^6.16.2",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1"
   },

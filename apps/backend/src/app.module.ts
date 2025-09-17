@@ -6,6 +6,8 @@ import { Auth0Module } from './auth/auth0.module';
 import { UserModule } from './users/user.module';
 import { TenantModule } from './tenants/tenant.module';
 import { SeedModule } from './seed/seed.module';
+import { PrismaModule } from './prisma/prisma.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -13,10 +15,12 @@ import { SeedModule } from './seed/seed.module';
       isGlobal: true,
       envFilePath: ['.env.local', '.env'],
     }),
+    PrismaModule,
     Auth0Module,
     UserModule,
     TenantModule,
     SeedModule,
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

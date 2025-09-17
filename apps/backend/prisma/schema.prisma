@@ -1,0 +1,180 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Management Models
+model User {
+  id          String     @id @default(cuid())
+  email       String     @unique
+  name        String
+  picture     String?
+  role        UserRole   @default(USER)
+  auth0Id     String     @unique
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  lastLoginAt DateTime?
+  isActive    Boolean    @default(true)
+  
+  // Embedded preferences as JSON
+  preferences Json?
+  
+  // Relations
+  createdGifts     Gift[]      @relation("UserCreatedGifts")
+  createdChallenges Challenge[] @relation("UserCreatedChallenges")
+
+  @@map("users")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+// Tenant Management Models
+model Tenant {
+  id               String             @id @default(cuid())
+  email            String             @unique
+  name             String
+  picture          String?
+  role             TenantRole         @default(TENANT_USER)
+  auth0Id          String             @unique
+  organizationName String
+  organizationId   String
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  lastLoginAt      DateTime?
+  isActive         Boolean            @default(true)
+  
+  // Embedded settings as JSON
+  settings        Json?
+  
+  // Relations
+  permissions     TenantPermissionMapping[]
+  createdGifts    Gift[]             @relation("TenantCreatedGifts")
+  createdChallenges Challenge[]      @relation("TenantCreatedChallenges")
+  
+  @@map("tenants")
+}
+
+enum TenantRole {
+  TENANT_ADMIN
+  TENANT_MANAGER
+  TENANT_USER
+}
+
+enum TenantPermission {
+  MANAGE_GIFTS
+  MANAGE_CHALLENGES
+  VIEW_ANALYTICS
+  MANAGE_USERS
+  MANAGE_SETTINGS
+}
+
+// Junction table for tenant permissions (many-to-many)
+model TenantPermissionMapping {
+  id         String           @id @default(cuid())
+  tenantId   String
+  permission TenantPermission
+  
+  tenant     Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  @@unique([tenantId, permission])
+  @@map("tenant_permissions")
+}
+
+// Gift Management Model
+model Gift {
+  id             String   @id @default(cuid())
+  name           String
+  description    String
+  value          Float
+  category       String
+  imageUrl       String?
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  organizationId String
+  
+  // Relations
+  createdByUserId   String?
+  createdByTenantId String?
+  createdByUser     User?   @relation("UserCreatedGifts", fields: [createdByUserId], references: [id])
+  createdByTenant   Tenant? @relation("TenantCreatedGifts", fields: [createdByTenantId], references: [id])
+  
+  // Gift can be used as challenge rewards
+  challengeRewards ChallengeReward[]
+  
+  @@map("gifts")
+}
+
+// Challenge Management Models
+model Challenge {
+  id             String            @id @default(cuid())
+  title          String
+  description    String
+  type           ChallengeType
+  difficulty     ChallengeDifficulty
+  points         Int
+  startDate      DateTime
+  endDate        DateTime
+  isActive       Boolean           @default(true)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  organizationId String
+  rules          String[]          @default([])
+  
+  // Relations
+  createdByUserId   String?
+  createdByTenantId String?
+  createdByUser     User?           @relation("UserCreatedChallenges", fields: [createdByUserId], references: [id])
+  createdByTenant   Tenant?         @relation("TenantCreatedChallenges", fields: [createdByTenantId], references: [id])
+  
+  rewards        ChallengeReward[]
+  
+  @@map("challenges")
+}
+
+enum ChallengeType {
+  DAILY
+  WEEKLY
+  MONTHLY
+  SPECIAL
+}
+
+enum ChallengeDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+// Challenge Reward Model
+model ChallengeReward {
+  id          String                @id @default(cuid())
+  type        ChallengeRewardType
+  value       String                // Can store gift ID, points amount, or badge name
+  description String
+  
+  // Relations
+  challengeId String
+  challenge   Challenge             @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  
+  giftId      String?
+  gift        Gift?                 @relation(fields: [giftId], references: [id])
+  
+  @@map("challenge_rewards")
+}
+
+enum ChallengeRewardType {
+  GIFT
+  POINTS
+  BADGE
+}
