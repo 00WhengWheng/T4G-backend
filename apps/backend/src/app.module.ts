@@ -9,6 +9,7 @@ import { SeedModule } from './seed/seed.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { HealthModule } from './health/health.module';
 import { RewardModule } from './rewards/reward.module';
+import { TrpcModule } from './trpc/trpc.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { RewardModule } from './rewards/reward.module';
     SeedModule,
     HealthModule,
     RewardModule,
+    TrpcModule,
   ],
   controllers: [AppController],
   providers: [AppService],

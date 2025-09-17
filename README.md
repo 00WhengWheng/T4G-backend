@@ -1,20 +1,37 @@
-# Tag 4 Gift Admin - NestJS + Fastify Backend
+# Tag 4 Gift Admin - NestJS + Fastify Backend with tRPC
 
-A high-performance backend API built with NestJS framework and Fastify adapter, organized as a Turborepo monorepo.
+A high-performance backend API built with NestJS framework and Fastify adapter, featuring both REST API endpoints and type-safe tRPC procedures. Organized as a Turborepo monorepo with dual authentication domains for user and tenant management.
 
 ## 🚀 Features
 
 - **NestJS Framework** - Scalable Node.js server-side applications
 - **Fastify Adapter** - High-performance web framework
+- **tRPC Integration** - Type-safe API with full TypeScript support
 - **Auth0 Integration** - Authentication for both user and tenant domains
 - **User Management** - Complete user service with role-based permissions
 - **Tenant Management** - Dashboard management with gift and challenge systems
 - **Real-time Analytics** - Dashboard analytics for tenant users
 - **Role-based Access Control** - RBAC system for users and tenants
 - **Turborepo** - Monorepo build system for better developer experience
-- **TypeScript** - Type-safe development
-- **Jest Testing** - Comprehensive unit and E2E testing (45 tests)
+- **TypeScript** - Type-safe development  
+- **Jest Testing** - Comprehensive unit and E2E testing (53 tests)
 - **ESLint** - Code linting and formatting
+
+## 🔥 tRPC Integration
+
+This backend provides both REST API endpoints and tRPC procedures for type-safe communication with frontends:
+
+- **Type-safe API** - Full TypeScript support from backend to frontend
+- **Automatic validation** - Zod schemas for input/output validation
+- **Authentication middleware** - JWT token verification for both domains
+- **Error handling** - Comprehensive error types and messages
+
+### tRPC Endpoints
+- **Health check**: `/trpc/health`
+- **User procedures**: `/trpc/user.*` (for t4g.fun)
+- **Tenant procedures**: `/trpc/tenant.*` (for t4g.space)
+
+See [TRPC_INTEGRATION.md](TRPC_INTEGRATION.md) for detailed usage examples.
 
 ## 🔐 Auth0 Authentication
 
