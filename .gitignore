@@ -15,6 +15,10 @@ apps/*/dist/
 packages/*/dist/
 .turbo/
 
+# NX cache
+.nx/cache/
+.nx/workspace-data/
+
 # Logs
 logs
 *.log

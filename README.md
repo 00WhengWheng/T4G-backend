@@ -1,6 +1,6 @@
 # Tag 4 Gift Admin - NestJS + Fastify Backend with tRPC
 
-A high-performance backend API built with NestJS framework and Fastify adapter, featuring both REST API endpoints and type-safe tRPC procedures. Organized as a Turborepo monorepo with dual authentication domains for user and tenant management.
+A high-performance backend API built with NestJS framework and Fastify adapter, featuring both REST API endpoints and type-safe tRPC procedures. Organized as an NX monorepo with dual authentication domains for user and tenant management.
 
 ## 🚀 Features
 
@@ -12,7 +12,7 @@ A high-performance backend API built with NestJS framework and Fastify adapter, 
 - **Tenant Management** - Dashboard management with gift and challenge systems
 - **Real-time Analytics** - Dashboard analytics for tenant users
 - **Role-based Access Control** - RBAC system for users and tenants
-- **Turborepo** - Monorepo build system for better developer experience
+- **NX Monorepo** - Modern monorepo build system for better developer experience
 - **TypeScript** - Type-safe development  
 - **Jest Testing** - Comprehensive unit and E2E testing (53 tests)
 - **ESLint** - Code linting and formatting
@@ -185,7 +185,7 @@ The application is configured to allow CORS for:
 │       └── package.json
 ├── packages/             # Shared packages (ready for future expansion)
 ├── package.json          # Root workspace configuration
-├── turbo.json           # Turborepo configuration
+├── nx.json              # NX configuration
 └── IMPLEMENTATION_SUMMARY.md # Detailed implementation guide
 ```
 
@@ -259,7 +259,7 @@ cd apps/backend && npm run start:prod
 - **Framework**: NestJS 10+
 - **Web Server**: Fastify 4+
 - **Language**: TypeScript 5+
-- **Build Tool**: Turborepo
+- **Build Tool**: NX
 - **Testing**: Jest
 - **Linting**: ESLint + TypeScript ESLint
 
